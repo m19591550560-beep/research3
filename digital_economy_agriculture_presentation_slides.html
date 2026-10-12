@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Presentation Mode | Digital Economy & Agricultural New Quality Productive Forces</title>
+  <style>
+    :root{
+      --bg:#f2e7d8;
+      --paper:#fbf5ec;
+      --panel:#f8efe4;
+      --brown:#3c291f;
+      --brown-2:#6c5446;
+      --brown-3:#9a7b65;
+      --line:#d8c5b4;
+      --accent:#7b5a45;
+      --shadow:0 18px 50px rgba(70,45,30,.08);
+    }
+
+    *{box-sizing:border-box;}
+    html, body{
+      margin:0;
+      padding:0;
+      height:100%;
+      overflow:hidden;
+      background:var(--bg);
+      color:var(--brown);
+      font-family:"Aptos","Helvetica Neue",Arial,sans-serif;
+    }
+
+    .deck{
+      height:100vh;
+      overflow-y:auto;
+      scroll-snap-type:y mandatory;
+      scroll-behavior:smooth;
+    }
+
+    .slide{
+      height:100vh;
+      width:100%;
+      scroll-snap-align:start;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:34px 42px;
+      position:relative;
+      background:
+        radial-gradient(circle at top right, rgba(154,123,101,.08) 0, rgba(154,123,101,.08) 13%, transparent 13.2%),
+        var(--bg);
+    }
+
+    .card{
+      width:min(1240px, 100%);
+      height:min(88vh, 860px);
+      background:var(--paper);
+      border:1px solid rgba(123,90,69,.14);
+      box-shadow:var(--shadow);
+      border-radius:32px;
+      overflow:hidden;
+      display:grid;
+      grid-template-columns: 1.28fr 0.72fr;
+      position:relative;
+    }
+
+    .hero-card{
+      display:grid;
+      grid-template-columns:1fr;
+      overflow:hidden;
+    }
+
+    .left{
+      padding:58px 62px 50px;
+      position:relative;
+    }
+
+    .right{
+      padding:58px 36px 50px;
+      background:linear-gradient(180deg, rgba(248,239,228,.9) 0%, rgba(242,231,216,.75) 100%);
+      border-left:1px solid var(--line);
+      overflow:auto;
+    }
+
+    .tiny{
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-size:12px;
+      font-weight:800;
+      color:var(--brown-3);
+      margin-bottom:18px;
+    }
+
+    .slide-no{
+      position:absolute;
+      right:28px;
+      top:24px;
+      font-family:Georgia,"Times New Roman",serif;
+      color:var(--brown-3);
+      font-size:16px;
+      font-weight:700;
+      letter-spacing:.08em;
+    }
+
+    .hero-title{
+      margin:0;
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:clamp(40px, 4.7vw, 70px);
+      line-height:1.03;
+      letter-spacing:-.035em;
+      max-width:900px;
+    }
+
+    .hero-subtitle{
+      margin-top:24px;
+      font-size:20px;
+      color:var(--brown-2);
+      max-width:860px;
+      line-height:1.7;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+      margin-top:34px;
+    }
+
+    .hero-box, .mini-box{
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:#fffaf4;
+      padding:18px 18px 16px;
+    }
+
+    .hero-box b,
+    .mini-box b{
+      display:block;
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:18px;
+      margin-bottom:8px;
+    }
+
+    .hero-box span,
+    .mini-box span{
+      color:var(--brown-2);
+      font-size:14px;
+      line-height:1.55;
+    }
+
+    .section-label{
+      display:inline-block;
+      padding:7px 14px;
+      border-radius:999px;
+      background:rgba(154,123,101,.12);
+      color:var(--accent);
+      font-size:13px;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      margin-bottom:18px;
+    }
+
+    h2{
+      margin:0;
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:clamp(30px,3vw,48px);
+      line-height:1.08;
+      letter-spacing:-.02em;
+      max-width:780px;
+    }
+
+    .cn-title{
+      margin-top:10px;
+      font-size:15px;
+      color:var(--brown-3);
+      font-weight:700;
+      letter-spacing:.04em;
+    }
+
+    .lead{
+      margin-top:24px;
+      font-size:22px;
+      line-height:1.7;
+      font-weight:500;
+      max-width:780px;
+    }
+
+    .lead strong, .eng p strong{
+      font-weight:800;
+      color:var(--brown);
+    }
+
+    .highlight{
+      background:linear-gradient(transparent 58%, rgba(154,123,101,.18) 58%);
+      font-weight:800;
+    }
+
+    .eng p{
+      margin:0 0 16px;
+      font-size:18px;
+      line-height:1.8;
+    }
+
+    .method{
+      margin-top:16px;
+      padding:16px 18px;
+      border-left:3px solid var(--accent);
+      background:rgba(154,123,101,.08);
+      border-radius:0 14px 14px 0;
+      color:var(--brown-2);
+      font-size:14px;
+      line-height:1.65;
+    }
+
+    .kicker{
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-size:11px;
+      font-weight:800;
+      color:var(--brown-3);
+      margin-bottom:12px;
+    }
+
+    .cn p{
+      margin:0 0 14px;
+      color:var(--brown-2);
+      font-size:14.5px;
+      line-height:1.82;
+    }
+
+    .mini-grid{
+      display:grid;
+      gap:12px;
+    }
+
+    .footer-note{
+      margin-top:16px;
+      color:var(--brown-3);
+      font-size:12px;
+      letter-spacing:.08em;
+    }
+
+    .toolbar{
+      position:fixed;
+      right:18px;
+      top:18px;
+      z-index:30;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .toolbar button{
+      border:1px solid var(--line);
+      background:rgba(251,245,236,.96);
+      color:var(--brown);
+      padding:11px 14px;
+      border-radius:999px;
+      cursor:pointer;
+      font-weight:800;
+      box-shadow:0 6px 20px rgba(70,45,30,.08);
+      font-size:13px;
+    }
+
+    .toolbar button:hover{background:white;}
+
+    .side-nav{
+      position:fixed;
+      left:16px;
+      top:50%;
+      transform:translateY(-50%);
+      z-index:20;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .dot{
+      width:13px;
+      height:13px;
+      border-radius:50%;
+      border:2px solid var(--accent);
+      background:transparent;
+      cursor:pointer;
+      transition:.2s ease;
+      opacity:.55;
+    }
+
+    .dot.active{
+      background:var(--accent);
+      transform:scale(1.12);
+      opacity:1;
+    }
+
+    .hint{
+      position:fixed;
+      left:50%;
+      bottom:14px;
+      transform:translateX(-50%);
+      background:rgba(60,41,31,.78);
+      color:#fff8f0;
+      padding:10px 14px;
+      border-radius:999px;
+      font-size:12px;
+      letter-spacing:.03em;
+      z-index:25;
+    }
+
+    [contenteditable="true"]{
+      outline:2px dashed rgba(123,90,69,.4);
+      outline-offset:4px;
+      border-radius:6px;
+    }
+
+    @media (max-width: 980px){
+      .card{
+        grid-template-columns:1fr;
+        height:auto;
+        min-height:88vh;
+      }
+      .right{border-left:none;border-top:1px solid var(--line);}
+      .slide{height:auto; min-height:100vh; padding:18px;}
+      .lead{font-size:18px;}
+      .eng p{font-size:16px;}
+      .hero-grid{grid-template-columns:1fr;}
+      .toolbar,.side-nav,.hint{display:none;}
+      html, body{overflow:auto;}
+      .deck{height:auto; overflow:visible; scroll-snap-type:none;}
+      .slide{scroll-snap-align:none;}
+    }
+
+    @media print{
+      html, body{overflow:visible;}
+      .deck{overflow:visible; height:auto;}
+      .slide{
+        height:auto;
+        min-height:100vh;
+        page-break-after:always;
+        scroll-snap-align:none;
+      }
+      .toolbar,.side-nav,.hint{display:none;}
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <button onclick="toggleEdit()" id="editBtn">Enable Edit Mode</button>
+    <button onclick="prevSlide()">↑ Previous</button>
+    <button onclick="nextSlide()">↓ Next</button>
+    <button onclick="window.print()">Print / Save PDF</button>
+  </div>
+
+  <div class="side-nav" id="sideNav">
+    <button class="dot active" data-slide="0" title="Cover"></button>
+    <button class="dot" data-slide="1" title="Research Content"></button>
+    <button class="dot" data-slide="2" title="Theoretical Framework"></button>
+    <button class="dot" data-slide="3" title="Research Design"></button>
+    <button class="dot" data-slide="4" title="Empirical Analysis"></button>
+    <button class="dot" data-slide="5" title="Research Conclusions"></button>
+  </div>
+
+  <div class="hint">Use mouse wheel / ↑ ↓ arrow keys / buttons to switch slides · F11 for full screen</div>
+
+  <main class="deck" id="deck">
+
+    <!-- Cover -->
+    <section class="slide editable" id="slide-0">
+      <div class="card hero-card">
+        <div class="left">
+          <div class="slide-no">01 / 06</div>
+          <div class="tiny">English Presentation · Literature Review</div>
+          <h1 class="hero-title">Digital Economy Empowering Agricultural New Quality Productive Forces</h1>
+          <div class="hero-subtitle">
+            A presentation-style summary of the paper, focusing on
+            <strong>research content</strong>, <strong>theoretical framework</strong>,
+            <strong>research design</strong>, <strong>empirical analysis</strong>,
+            and <strong>research conclusions</strong>.
+          </div>
+
+          <div class="hero-grid">
+            <div class="hero-box">
+              <b>Presentation Focus</b>
+              <span>English is the main language, while Chinese is used as supporting explanation.</span>
+            </div>
+            <div class="hero-box">
+              <b>Core Topic</b>
+              <span>How the digital economy promotes agricultural new quality productive forces.</span>
+            </div>
+            <div class="hero-box">
+              <b>Classroom Mode</b>
+              <span>One screen per page, projection-friendly, editable in browser.</span>
+            </div>
+          </div>
+
+          <div class="footer-note">Recommended for classroom projection · F11 full screen · scroll or arrow key to switch pages</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 1 -->
+    <section class="slide editable" id="slide-1">
+      <div class="card">
+        <div class="left eng">
+          <div class="slide-no">02 / 06</div>
+          <div class="section-label">01 Research Content</div>
+          <h2>What does the paper study?</h2>
+          <div class="cn-title">研究内容</div>
+          <p class="lead">
+            This study mainly examines how the <span class="highlight">digital economy</span>
+            promotes <span class="highlight">agricultural new quality productive forces</span>.
+          </p>
+          <p>
+            It not only investigates whether the digital economy has a positive effect,
+            but also explores the <strong>mechanisms</strong> behind this effect,
+            <strong>regional differences</strong>, and whether the impact changes under
+            different levels of <strong>economic development</strong> and <strong>urbanization</strong>.
+          </p>
+          <p>
+            In short, the paper answers three key questions:
+            <strong>Can</strong> the digital economy empower agriculture?
+            <strong>How</strong> does this happen?
+            <strong>Where</strong> is the effect more obvious?
+          </p>
+        </div>
+        <aside class="right cn">
+          <div class="kicker">Chinese Support</div>
+          <div class="mini-grid">
+            <div class="mini-box">
+              <b>Main Question</b>
+              <span>数字经济能否促进农业新质生产力发展？</span>
+            </div>
+            <div class="mini-box">
+              <b>Further Focus</b>
+              <span>文章进一步关注作用机制、区域差异，以及经济发展和城镇化水平变化下的影响差异。</span>
+            </div>
+            <div class="mini-box">
+              <b>Overall Idea</b>
+              <span>核心就是回答：能不能赋能、通过什么方式赋能、在哪些地区作用更明显。</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Slide 2 -->
+    <section class="slide editable" id="slide-2">
+      <div class="card">
+        <div class="left eng">
+          <div class="slide-no">03 / 06</div>
+          <div class="section-label">02 Theoretical Framework</div>
+          <h2>How does the digital economy empower agriculture?</h2>
+          <div class="cn-title">理论基础</div>
+          <p class="lead">
+            The paper explains the empowering role of the digital economy through
+            <strong>four aspects</strong>.
+          </p>
+          <p>
+            These include <strong>digital infrastructure</strong>,
+            <strong>digital industrialization</strong>,
+            <strong>industrial digitalization</strong>, and
+            <strong>digital innovation potential</strong>.
+          </p>
+          <p>
+            It also argues that <strong>digital literacy</strong> is an important transmission mechanism.
+            In other words, the digital economy can improve agricultural productivity
+            <strong>both directly and indirectly</strong> by strengthening workers’ ability
+            to use digital tools and technologies.
+          </p>
+        </div>
+        <aside class="right cn">
+          <div class="kicker">Chinese Support</div>
+          <p>
+            文章从数字基础设施、数字产业化、产业数字化和数字创新潜力四个方面解释数字经济的赋能作用。
+          </p>
+          <p>
+            例如，数字基础设施可以提升数据收集和智能决策能力，电商与数字平台可以拓宽农产品销售渠道，
+            数字技术还能提升生产、加工与销售各环节效率。
+          </p>
+          <p>
+            同时，作者特别强调<strong>人才数字素养</strong>这一传导机制，
+            也就是数字经济除了直接促进农业发展，还可以通过提升从业者数字技能产生间接影响。
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Slide 3 -->
+    <section class="slide editable" id="slide-3">
+      <div class="card">
+        <div class="left eng">
+          <div class="slide-no">04 / 06</div>
+          <div class="section-label">03 Research Design</div>
+          <h2>What data and methods are used?</h2>
+          <div class="cn-title">研究设计</div>
+          <p class="lead">
+            The study uses <strong>provincial panel data</strong> from
+            <strong>31 regions in China</strong> from <strong>2012 to 2022</strong>.
+          </p>
+          <p>
+            It constructs two comprehensive indices: one for the
+            <strong>digital economy</strong> and one for
+            <strong>agricultural new quality productive forces</strong>.
+          </p>
+          <p>
+            The authors use the <strong>entropy weight method</strong> to calculate the indices,
+            the <strong>two-way fixed effects model</strong> to test the overall impact,
+            and the <strong>mediation model</strong> to examine the role of digital literacy.
+          </p>
+          <div class="method">
+            <strong>Simple explanation:</strong><br>
+            Entropy weight method = assigns weights according to data variation.<br>
+            Two-way fixed effects = controls for provincial differences and time effects.<br>
+            Mediation model = tests whether digital literacy is an intermediate channel.
+          </div>
+        </div>
+        <aside class="right cn">
+          <div class="kicker">Chinese Support</div>
+          <p>
+            研究样本为2012—2022年中国31个省级地区数据，构建数字经济和农业新质生产力两个综合指标体系。
+          </p>
+          <p>
+            农业新质生产力主要从农业劳动者、农业劳动对象和农业劳动生产资料三个维度进行衡量。
+          </p>
+          <p>
+            实证方法上，文章使用<strong>熵权法</strong>、<strong>双向固定效应模型</strong>和<strong>中介效应模型</strong>，
+            并进一步进行稳健性、异质性、分维度和门槛效应分析。
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Slide 4 -->
+    <section class="slide editable" id="slide-4">
+      <div class="card">
+        <div class="left eng">
+          <div class="slide-no">05 / 06</div>
+          <div class="section-label">04 Empirical Analysis</div>
+          <h2>What do the empirical results show?</h2>
+          <div class="cn-title">实证分析</div>
+          <p class="lead">
+            The empirical results show that the digital economy has a
+            <span class="highlight">significant positive effect</span> on agricultural new quality productive forces.
+          </p>
+          <p>
+            This result remains stable after different <strong>robustness tests</strong>.
+            Meanwhile, <strong>digital literacy</strong> plays a partial mediating role.
+          </p>
+          <p>
+            Regional analysis shows that the effect is strongest in
+            <strong>western China</strong>, followed by
+            <strong>eastern China</strong> and then
+            <strong>central China</strong>.
+          </p>
+          <p>
+            The threshold regression further shows that the positive effect becomes stronger
+            when <strong>economic development</strong> and <strong>urbanization</strong>
+            reach certain levels.
+          </p>
+        </div>
+        <aside class="right cn">
+          <div class="kicker">Chinese Support</div>
+          <div class="mini-grid">
+            <div class="mini-box">
+              <b>Main Finding</b>
+              <span>数字经济对农业新质生产力具有显著正向促进作用，且稳健性检验后依然成立。</span>
+            </div>
+            <div class="mini-box">
+              <b>Mediating Effect</b>
+              <span>人才数字素养发挥部分中介作用，说明既有直接影响，也有间接影响。</span>
+            </div>
+            <div class="mini-box">
+              <b>Regional Pattern</b>
+              <span>区域效应表现为：西部 ＞ 东部 ＞ 中部。</span>
+            </div>
+            <div class="mini-box">
+              <b>Threshold Effect</b>
+              <span>经济发展水平和城镇化水平达到一定程度后，促进作用会更强。</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Slide 5 -->
+    <section class="slide editable" id="slide-5">
+      <div class="card">
+        <div class="left eng">
+          <div class="slide-no">06 / 06</div>
+          <div class="section-label">05 Research Conclusions</div>
+          <h2>What is the final conclusion?</h2>
+          <div class="cn-title">研究结论</div>
+          <p class="lead">
+            Overall, the paper concludes that the <strong>digital economy is an important driver</strong>
+            of agricultural new quality productive forces.
+          </p>
+          <p>
+            However, its impact is not uniform. It varies according to
+            <strong>digital literacy</strong>, <strong>regional conditions</strong>,
+            <strong>economic development</strong>, and <strong>urbanization</strong>.
+          </p>
+          <p>
+            Therefore, the authors suggest improving <strong>rural digital infrastructure</strong>,
+            strengthening <strong>digital skills</strong>,
+            adopting <strong>differentiated regional policies</strong>,
+            and promoting deeper integration of digital technologies into agricultural production and management.
+          </p>
+        </div>
+        <aside class="right cn">
+          <div class="kicker">Chinese Support</div>
+          <p>
+            总体来看，文章认为数字经济是推动农业新质生产力发展的重要力量，
+            但这种作用会受到数字素养、地区差异、经济发展水平和城镇化水平的影响。
+          </p>
+          <p>
+            因此，作者建议继续完善农村数字基础设施，提高农业从业者数字素养，
+            根据东中西部不同发展条件制定差异化政策，并推动数字技术更深层次融入农业生产和管理全过程。
+          </p>
+          <div class="footer-note">Ending slide · suitable for oral summary and final takeaway</div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const deck = document.getElementById('deck');
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    const dots = Array.from(document.querySelectorAll('.dot'));
+    let current = 0;
+    let editing = false;
+
+    function goToSlide(index){
+      current = Math.max(0, Math.min(index, slides.length - 1));
+      slides[current].scrollIntoView({behavior:'smooth', block:'start'});
+      updateDots();
+    }
+
+    function updateDots(){
+      dots.forEach((dot, i)=> dot.classList.toggle('active', i === current));
+    }
+
+    function detectCurrentSlide(){
+      let closestIndex = 0;
+      let smallest = Infinity;
+      slides.forEach((slide, i)=>{
+        const rect = slide.getBoundingClientRect();
+        const distance = Math.abs(rect.top);
+        if(distance < smallest){
+          smallest = distance;
+          closestIndex = i;
+        }
+      });
+      current = closestIndex;
+      updateDots();
+    }
+
+    function nextSlide(){ goToSlide(current + 1); }
+    function prevSlide(){ goToSlide(current - 1); }
+
+    function toggleEdit(){
+      editing = !editing;
+      document.querySelectorAll('.editable').forEach(el=>{
+        el.contentEditable = editing ? 'true' : 'false';
+      });
+      document.getElementById('editBtn').textContent = editing ? 'Finish Editing' : 'Enable Edit Mode';
+    }
+
+    dots.forEach(dot=>{
+      dot.addEventListener('click', ()=> goToSlide(Number(dot.dataset.slide)));
+    });
+
+    deck.addEventListener('scroll', ()=>{
+      window.requestAnimationFrame(detectCurrentSlide);
+    });
+
+    document.addEventListener('keydown', (e)=>{
+      if(editing) return;
+      if(e.key === 'ArrowDown' || e.key === 'PageDown'){
+        e.preventDefault(); nextSlide();
+      }else if(e.key === 'ArrowUp' || e.key === 'PageUp'){
+        e.preventDefault(); prevSlide();
+      }
+    });
+
+    window.nextSlide = nextSlide;
+    window.prevSlide = prevSlide;
+    window.toggleEdit = toggleEdit;
+  </script>
+</body>
+</html>
